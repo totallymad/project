@@ -466,3 +466,334 @@ P.S. Функции вызывать не обязательно*/
 //     }
 // }
 
+// 019 Callback- функции!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// function first() {
+//     //Do something
+//     setTimeout(function () {
+//         console.log(1);
+//     }, 500);
+// }
+
+// function second() {
+//     console.log(2);
+// }
+
+// first();
+// second();
+
+// //если функции идут одни за другой, необязательно что выполняются так же
+
+// function learnJS(lang, callback) {
+//     console.log(`Я учу: ${lang}`);
+//     callback();
+// }
+
+// function done() {
+//     console.log('Я прошел этот урок!');
+// }
+
+// learnJS('JavaScript', done);
+
+// 020 Объекты, деструктуризация объектов (ES6) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// const obj = new Object();
+
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function() {
+//         console.log("test");   // собсвтенный метод
+//     }
+// };
+
+// options.makeTest();
+
+// const {border, bg} = options.colors; //деструктуризация объекта
+// console.log(border);
+
+// console.log(Object.keys(options).length); //Количество свойств объектов
+
+// console.log(options.name);
+
+// delete options.name;
+
+// console.log(options);
+
+// let counter = 0;
+
+// for (let key in options) {
+//     if (typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//         }
+//     } else {
+//         console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//         counter++;
+//     }
+// }  //перебор свойств объекта
+
+// console.log(counter);
+
+// 021 Массивы и псевдомассивы !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// const arr = [1, 2, 3, 6, 8];
+// // arr[99] = 0;
+// // console.log(arr.length); // свойство length состоит из последнего индекса + 1
+// // console.log(arr);
+
+// arr.forEach(function(item, i, arr) {
+//     console.log(`${i}: ${item} внутри массива ${arr}`); //перебор массива
+// });
+
+// arr.pop(); //удаляет последний элемент массива
+// arr.push(10); //добавляет элемент в конец
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) { // тоже перебор но с помощью цикла 
+//     console.log(arr[i]);
+// }
+
+// for (let value of arr) { // тоже перебор. в двух последних можно использовать break и continiue, в первом нет
+//     console.log(value);
+// }
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// products.sort(); // сортирует всё как строки a-z а массив чисел 1-10
+// console.log(products.join('; '));
+
+// const arr = [2, 13, 26, 8, 10];
+// arr.sort(compareNum);
+// console.log(arr);
+
+// function compareNum(a, b) { //позволяте нормально отсортировать используя sort
+//     return a - b;
+// }
+
+// 022 Передача по ссылке или по значению, Spread оператор (ES6-ES9)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// let a = 5,
+//     b = a;
+
+// b = b + 5;
+
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//     a: 5,
+//     b: 1
+// };
+
+// const copy = obj; // передает ссылку а не значение
+
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+// function copy(mainObj) {      //создание копии ПОВЕРХНОСТНОЙ копии объекта
+//     let objCopy = {};
+
+//     let key;
+//     for (key in mainObj) {
+//         objCopy[key] = mainObj[key];
+//     }
+
+//     return objCopy;
+// }
+
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// };
+
+// const newNumbers = copy(numbers);
+
+// newNumbers.a = 10;
+// newNumbers.c.x = 10; // вложенный объект тоже поменялся 
+
+// // console.log(newNumbers);
+// // console.log(numbers);
+
+// const add = {
+//     d: 17,
+//     e: 20
+// };
+
+// const clone = Object.assign({}, add); // создание ПОВЕРХНОСТНОЙ копиии объекта
+
+// clone.d = 20;
+
+// // console.log(add);
+// // console.log(clone);
+
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice(); /// создание ПОВЕРХНОСТНОЙ копии массива
+
+// newArray[1] = 'adsadsasddssa';
+// console.log(newArray);
+// console.log(oldArray);
+
+// const video = ['youtube', 'vimeo', 'rutube'],
+//     blogs = ['wordpress', 'livejournal', 'blogger'],
+//     internet = [...video, ...blogs, 'vk', 'facebook']; // оператор разворота 
+
+// console.log(internet);
+
+// function log(a, b, c) {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+
+// const num = [2, 5, 7];
+
+// log(...num);
+
+
+// const array = ["a", "b"];
+
+// const newAarray = [...array];
+
+// const q = {
+//     one: 1,
+//     two: 2
+// };
+
+// const newObj = { ...q }; // самый новый способ создания поверхностной копии объекта появлися в ES8, Задокументирован в ES9
+
+// console.log(newObj);
+
+// 023 Основы ООП, прототипно-ориентированное наследование
+
+// let str = "some";
+// let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+// console.dir([1, 2, 3]);
+
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: function () {
+//         console.log("Hello");
+//     }
+// };
+
+// const john = Object.create(soldier); //создаем новый объект джон который будет прототипно наследоваться от солжата 
+
+// // const john = {
+// //     health: 100,
+// // };
+
+// // john.__proto__ = soldier;  //установили прототипом джона солдата -- старый способ
+
+// // Object.setPrototypeOf(john, soldier); // тоже самое но новый способ
+
+// console.log(john.armor);
+// john.sayHello();
+
+
+//024 Практика , ч4. Используем объекты!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/* Задание на урок:
+
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function () {
+        personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели', '');
+
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели', '');
+        }
+    },
+    rememberMyFilms: function () {
+        for (let i = 0; i < 2; i++) {
+            const a = prompt('Какой последний фильм вы посмотрели?', ''),
+                b = prompt('На сколько оцените его?', '');
+
+            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+                personalMovieDB.movies[a] = b;
+                console.log('done');
+            } else {
+                console.log('error');
+                i--;
+            }
+        }
+    },
+    detectPersonalLevel: function () {
+        if (personalMovieDB.count < 10) {
+            console.log('Просмотрено довольно мало фильмов');
+        } else if (personalMovieDB.count >= 30) {
+            console.log('Вы киноман');
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+            console.log('Вы классический зритель');
+        } else {
+            console.log('Произошла ошибка');
+        }
+    },
+    showMyDB: function (hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB);
+        }
+    },
+    writeYourGenres: function () {
+        for (let i = 0; i < 3; i++) {
+            let genre = prompt(`Ваш любимый жанр под номером ${i + 1}`, '');
+
+            if (genre === '' || genre === null) {
+                console.log('Вы ввели некорректные данные или не ввели их вообще');
+                i--;
+            } else {
+                personalMovieDB.genres[i] = genre;
+            }
+        }
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+        })
+    },
+    toggleVisibleMyDB: function () {
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
+        };
+    }
+};
+
+// personalMovieDB.start();
+// personalMovieDB.rememberMyFilms();
+// personalMovieDB.detectPersonalLevel();
+// personalMovieDB.writeYourGenres();
+// personalMovieDB.toggleVisibleMyDB();
+// personalMovieDB.showMyDB();
