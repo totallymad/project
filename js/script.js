@@ -724,72 +724,72 @@ P.S. Функции вызывать не обязательно*/
 при помощи метода forEach вывести в консоль сообщения в таком виде:
 "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
 
-const personalMovieDB = {
-    count: 0,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start: function () {
-        personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели', '');
+// const personalMovieDB = {
+//     count: 0,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false,
+//     start: function () {
+//         personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели', '');
 
-        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-            personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели', '');
-        }
-    },
-    rememberMyFilms: function () {
-        for (let i = 0; i < 2; i++) {
-            const a = prompt('Какой последний фильм вы посмотрели?', ''),
-                b = prompt('На сколько оцените его?', '');
+//         while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+//             personalMovieDB.count = prompt('Сколько фильмов вы уже посмотрели', '');
+//         }
+//     },
+//     rememberMyFilms: function () {
+//         for (let i = 0; i < 2; i++) {
+//             const a = prompt('Какой последний фильм вы посмотрели?', ''),
+//                 b = prompt('На сколько оцените его?', '');
 
-            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-                personalMovieDB.movies[a] = b;
-                console.log('done');
-            } else {
-                console.log('error');
-                i--;
-            }
-        }
-    },
-    detectPersonalLevel: function () {
-        if (personalMovieDB.count < 10) {
-            console.log('Просмотрено довольно мало фильмов');
-        } else if (personalMovieDB.count >= 30) {
-            console.log('Вы киноман');
-        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-            console.log('Вы классический зритель');
-        } else {
-            console.log('Произошла ошибка');
-        }
-    },
-    showMyDB: function (hidden) {
-        if (!hidden) {
-            console.log(personalMovieDB);
-        }
-    },
-    writeYourGenres: function () {
-        for (let i = 0; i < 3; i++) {
-            let genre = prompt(`Ваш любимый жанр под номером ${i + 1}`, '');
+//             if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//                 personalMovieDB.movies[a] = b;
+//                 console.log('done');
+//             } else {
+//                 console.log('error');
+//                 i--;
+//             }
+//         }
+//     },
+//     detectPersonalLevel: function () {
+//         if (personalMovieDB.count < 10) {
+//             console.log('Просмотрено довольно мало фильмов');
+//         } else if (personalMovieDB.count >= 30) {
+//             console.log('Вы киноман');
+//         } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//             console.log('Вы классический зритель');
+//         } else {
+//             console.log('Произошла ошибка');
+//         }
+//     },
+//     showMyDB: function (hidden) {
+//         if (!hidden) {
+//             console.log(personalMovieDB);
+//         }
+//     },
+//     writeYourGenres: function () {
+//         for (let i = 0; i < 3; i++) {
+//             let genre = prompt(`Ваш любимый жанр под номером ${i + 1}`, '');
 
-            if (genre === '' || genre === null) {
-                console.log('Вы ввели некорректные данные или не ввели их вообще');
-                i--;
-            } else {
-                personalMovieDB.genres[i] = genre;
-            }
-        }
-        personalMovieDB.genres.forEach((item, i) => {
-            console.log(`Любимый жанр ${i + 1} - это ${item}`);
-        })
-    },
-    toggleVisibleMyDB: function () {
-        if (personalMovieDB.privat) {
-            personalMovieDB.privat = false;
-        } else {
-            personalMovieDB.privat = true;
-        };
-    }
-};
+//             if (genre === '' || genre === null) {
+//                 console.log('Вы ввели некорректные данные или не ввели их вообще');
+//                 i--;
+//             } else {
+//                 personalMovieDB.genres[i] = genre;
+//             }
+//         }
+//         personalMovieDB.genres.forEach((item, i) => {
+//             console.log(`Любимый жанр ${i + 1} - это ${item}`);
+//         })
+//     },
+//     toggleVisibleMyDB: function () {
+//         if (personalMovieDB.privat) {
+//             personalMovieDB.privat = false;
+//         } else {
+//             personalMovieDB.privat = true;
+//         };
+//     }
+// };
 
 // personalMovieDB.start();
 // personalMovieDB.rememberMyFilms();
@@ -797,3 +797,62 @@ const personalMovieDB = {
 // personalMovieDB.writeYourGenres();
 // personalMovieDB.toggleVisibleMyDB();
 // personalMovieDB.showMyDB();
+
+
+//025 Отлавливаем ошибки в своем коде при помощи консоли разработчика. Breakpoints!!!!!!!!!!!!
+
+//026 Динамическая типизация в JS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// // To string
+
+// // 1) Самый старый 
+// console.log(typeof(String(null)));
+// console.log(typeof(String(4)));
+
+// // 2) конкотинация
+// console.log(typeof(5 + '')); // при сложении со строкой получается строка
+
+// const num = 5;
+
+// console.log("https://vk.com/catalog/" + num);
+
+// const fontSize = 26 + 'px';
+
+// // to Number
+
+// // 1) 
+// console.log(typeof(Number('4')));
+
+// // 2)
+// console.log(typeof(+'5'));
+
+// // 3)
+// console.log(typeof(parseInt('15px', 10)));
+
+
+// // let answ = +prompt('Hello', '');
+
+// // To boolean
+
+// // всегда False
+// // 0, '', null, undefined, NaN;
+
+// // 1)
+
+// let switcher = null; 
+
+// if (switcher) {
+//     console.log('Working...');
+// }
+
+// switcher = 1;
+
+// if (switcher) {
+//     console.log('Working...');
+// }
+
+// // 2)
+// console.log(typeof(Boolean('4')));
+
+// // 3)
+// console.log(typeof(!!"4444444"));
