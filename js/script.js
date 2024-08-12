@@ -880,29 +880,29 @@ const btns = document.querySelectorAll('button'),
 
 // let i = 0;
 
-// const deleteElement = (e) => {
-//     console.log(e.target);
-//     console.log(e.type)
-//     // i++;
-//     // if (i == 1) {
-//     //     btn.removeEventListener('click', deleteElement);
-//     // }
-//     // console.log(e.target);
-//     // e.target.remove();
-// };
+const deleteElement = (e) => {
+    console.log(e.target);
+    console.log(e.type)
+    // i++;
+    // if (i == 1) {
+    //     btn.removeEventListener('click', deleteElement);
+    // }
+    // console.log(e.target);
+    // e.target.remove();
+};
 
-// // btn.addEventListener('click', deleteElement);
-// // overlay.addEventListener('click', deleteElement); // всплытие событий - сначала срабатывает внутри, а потом идет наверх
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement); // всплытие событий - сначала срабатывает внутри, а потом идет наверх
 
-// btns.forEach(btn => {
-//     btn.addEventListener('click', deleteElement, {once: true}); //once true сработает только одын раз
-// });
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement, {once: true}); //once true сработает только одын раз
+});
 
-// const link = document.querySelector('a');
+const link = document.querySelector('a');
 
-// link.addEventListener('click', (event) => {
-//     event.preventDefault();              // отменить стандартное поведение браузера
-//     console.log(event.target);
-// });
+link.addEventListener('click', (event) => {
+    event.preventDefault();              // отменить стандартное поведение браузера
+    console.log(event.target);
+});
 
 
