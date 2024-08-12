@@ -856,3 +856,53 @@ P.S. Функции вызывать не обязательно*/
 
 // // 3)
 // console.log(typeof(!!"4444444"));
+
+//031 События и их обработчики!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+
+const btns = document.querySelectorAll('button'),
+    overlay = document.querySelector('.overlay');
+
+// btn.onclick = function() {
+//     alert('Click');
+// };
+
+// btn.onclick = function() {
+//     alert('Second click');
+// };
+
+// btn.addEventListener('click', () => {
+//     alert('Click');
+// });
+
+// btn.addEventListener('click', () => {
+//     alert('Second click');
+// });
+
+// let i = 0;
+
+const deleteElement = (e) => {
+    console.log(e.target);
+    console.log(e.type)
+    // i++;
+    // if (i == 1) {
+    //     btn.removeEventListener('click', deleteElement);
+    // }
+    // console.log(e.target);
+    // e.target.remove();
+};
+
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement); // всплытие событий - сначала срабатывает внутри, а потом идет наверх
+
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement, {once: true}); //once true сработает только одын раз
+});
+
+const link = document.querySelector('a');
+
+link.addEventListener('click', (event) => {
+    event.preventDefault();              // отменить стандартное поведение браузера
+    console.log(event.target);
+});
+
+
