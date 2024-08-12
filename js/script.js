@@ -905,4 +905,25 @@ P.S. Функции вызывать не обязательно*/
 //     console.log(event.target);
 // });
 
+// 032 Навигация по DOM - элементам, data-атрибуты, преимущество for_of!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+// console.log(document.body); //body
+// console.log(document.documentElement);  //html
+// console.log(document.body.childNodes); // Все элементы body
+// console.log(document.body.firstChild); //первый элемент
+// console.log(document.body.firstElementChild);
+// console.log(document.body.lastChild); //последний элемент
+
+// console.log(document.querySelector('#current').parentNode.parentNode);
+// console.log(document.querySelector('#current').parentNode.parentElement);
+
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+
+for (let node of document.body.childNodes) { // перебор псевдомассива элементов body и если текст то пропускаем
+    if (node.nodeName == '#text') {
+        continue;
+    }
+
+
+    console.log(node);
+}
