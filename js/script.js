@@ -919,11 +919,63 @@ P.S. Функции вызывать не обязательно*/
 
 // console.log(document.querySelector('[data-current="3"]').nextElementSibling);
 
-for (let node of document.body.childNodes) { // перебор псевдомассива элементов body и если текст то пропускаем
-    if (node.nodeName == '#text') {
-        continue;
-    }
+// for (let node of document.body.childNodes) { // перебор псевдомассива элементов body и если текст то пропускаем
+//     if (node.nodeName == '#text') {
+//         continue;
+//     }
 
 
-    console.log(node);
-}
+//     console.log(node);
+// }
+
+// 034 События на мобильных устройствах!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// touchstart 
+// touchmove
+// touchend
+// touchenter
+// touchleave
+// touchcancel
+
+// window.addEventListener('DOMContentLoaded', () => {
+//     const box = document.querySelector('.box');
+
+//     box.addEventListener('touchstart', (e) => {
+//         e.preventDefault;
+
+//         console.log('start');
+//         console.log(e.targetTouches)
+//     });
+
+//     box.addEventListener('touchmove', (e) => {
+//         e.preventDefault;
+
+//         console.log(e.targetTouches[0].pageX);
+//     });
+
+//     // box.addEventListener('touchend', (e) => {
+//     //     e.preventDefault;
+
+//     //     console.log('end');
+//     // });
+
+//     // touches - все пальцы которые взаимодействуют с экраном
+//     // targetTouches - все пальцы которые взаимодействуют с экраном
+//     // changedTouches - все пальцы которые участвуют в текущем событии
+// });
+
+// 035 Async, defer, динамические скрипты!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// const p = document.querySelectorAll('p');
+// console.log(p);
+
+
+// function loadScript(src) {
+//     const script = document.createElement('script'); //динамически загружаемый скрипт. ведет себя как async
+//     script.src = src;
+//     script.async = false; // можно изменить тип поведения подключаемого скрипта
+//     document.body.append(script);
+// }
+
+// loadScript("js/test.js");
+// loadScript("js/some.js");
